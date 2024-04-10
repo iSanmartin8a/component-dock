@@ -1,0 +1,103 @@
+.dock {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_collapsed {
+    position: absolute;
+    width: 40px;
+    height: 7px;
+    background-color: #edede9;
+    border-radius: 20px;
+    animation: float 4s ease-in-out infinite;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    &_hidden {
+      // animation: fadeOut 1s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    &_visible {
+      // animation: fadeIn 1s ease-in-out forwards;
+      opacity: 1;
+    }
+
+    &_not {
+      position: absolute;
+      margin-bottom: 35px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      column-gap: 5px;
+      transition: 0.5s ease-in-out;
+      opacity: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 30px 40px rgba(0,0,0,.1);
+      // box-shadow: rgba(0, 0, 0, 0.1) 0px 18px 50px -10px;
+
+      &_pack {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &_hidden {
+        animation: fadeOut 1s ease-in-out forwards;
+      }
+
+      &_visible {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+    }
+  }
+
+  &_icon {
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+}
+
+// ANIMATIONS
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(255, 255, 255, 0.5);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 10px 15px 0px rgba(255, 255, 255, 0.2);
+    transform: translatey(-3px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(255, 255, 255, 0.5);
+    transform: translatey(0px);
+  }
+}
